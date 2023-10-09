@@ -6,4 +6,5 @@ public interface Operation {
 
     ComplexNumber calculate(ComplexNumber left, ComplexNumber right);
 
+
 }

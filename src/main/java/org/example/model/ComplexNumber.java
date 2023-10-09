@@ -1,13 +1,13 @@
 package org.example.model;
 
-import lombok.Data;
-import lombok.Getter;
 
-@Data
-public class ComplexNumber {
+public record ComplexNumber(double real, double imaginary) {
 
-    private double real;
+    //
 
-    private double imaginary;
+    @Override
+    public String toString() {
 
+        return "%s%s%si".formatted(real, imaginary < 0 ? "" : "+", imaginary);
+    }
 }
