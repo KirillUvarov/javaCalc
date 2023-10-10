@@ -1,6 +1,7 @@
-package org.example;
+package view;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.util.Loggable;
 import org.example.controller.interfaces.Operation;
 import org.example.controller.interfaces.impl.Add;
 import org.example.controller.interfaces.impl.Division;
@@ -9,14 +10,15 @@ import org.example.controller.interfaces.impl.Subtract;
 import org.example.model.ComplexNumber;
 import lombok.Data;
 import lombok.Getter;
+import org.example.util.Logger;
 
 import java.util.Scanner;
 
-@Slf4j
-public class Main{
+//@Slf4j
+public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RuntimeException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите вещественное первого комплексного числа: ");
         double firstReal = scanner.nextDouble();
@@ -51,12 +53,20 @@ public class Main{
         ComplexNumber left = new ComplexNumber(firstReal, firstImaginary);
 
         ComplexNumber right = new ComplexNumber(secondReal, secondImaginary);
-        System.out.println(operation.calculate(left, right));
 
-//        log.info("test");
+        String res = operation.calculate(left, right).toString();
+
+        Logger logRes = new Logger();
+
+        logRes.log(res);
+
+
+
 
 
 
 
     }
+
+
 }
